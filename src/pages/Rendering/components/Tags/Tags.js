@@ -1,7 +1,5 @@
 import React from 'react'
 
-type BoldProps = React.HTMLAttributes<HTMLElement>
-
 /**
  * @desc We can do something like `<B></B>`
  * @desc But, we can't see attributes of `B` element
@@ -12,19 +10,15 @@ const B = 'b'
  * Create bold element tag
  * @desc Element from `string`
  */
-function Bold({ children, ...props }: BoldProps) {
+function Bold({ children, ...props }) {
   return <B {...props}>{children}</B>
 }
-
-type TagProps = {
-  level: '1' | '2' | '3'
-} & React.HTMLAttributes<HTMLHeadingElement>
 
 /**
  * @desc Element from `template string`
  * @see https://stackoverflow.com/a/59685929/7975543
  */
-function Tag({ level, children, ...props }: TagProps) {
+function Tag({ level, children, ...props }) {
   const HeadingTag = `h${level}`
   return <HeadingTag {...props}>{children}</HeadingTag>
 }
@@ -38,16 +32,11 @@ const elements = {
   xxs: 'h6',
 }
 
-type HeadingProps = {
-  size: keyof typeof elements
-  children: React.ReactNode
-} & React.HTMLAttributes<HTMLHeadingElement>
-
 /**
  * @desc Element from `React.createElement`
  * @see https://stackoverflow.com/a/56411377/7975543
  */
-function Heading({ size, children, ...props }: HeadingProps) {
+function Heading({ size, children, ...props }) {
   return React.createElement(elements[size] || elements.rg, props, children)
 }
 

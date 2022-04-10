@@ -7,7 +7,7 @@ import * as XLSX from 'xlsx'
  * @package https://github.com/SheetJS/sheetjs
  * @see https://github.com/SheetJS/sheetjs/tree/master/demos/react
  */
-export function readExcel(file: File): Promise<unknown[]> {
+export function readExcel() {
   return new Promise((resolve, reject) => {
     let reader = new FileReader()
 
@@ -34,7 +34,7 @@ export function readExcel(file: File): Promise<unknown[]> {
  * @see https://qawithexperts.com/article/javascript/read-excel-file-using-javascript-xlsx-or-xls/239  Read XLSX using Javascript
  * @param file
  */
-export function validate(file: File) {
+export function validate() {
   // Validate whether File is valid Excel file.
   const regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xls|.xlsx)$/
   if (!regex.test(file.name.toLowerCase())) {

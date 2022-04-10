@@ -7,10 +7,6 @@ import {
   useEffect,
 } from 'react'
 
-type ContextValue = {
-  isOpen: boolean
-  setSidebar?: (value?: Pick<ContextValue, 'isOpen'>) => void
-}
 
 const initialState = { isOpen: JSON.parse(localStorage.getItem('isSidebarOpen') || 'true') ?? true }
 
@@ -20,12 +16,12 @@ const initialState = { isOpen: JSON.parse(localStorage.getItem('isSidebarOpen') 
  * But in this case, we set the value to `undefined`, so it will throw
  * if we calling `useSidebar` without the `Provider`
  */
-const SidebarCtx = createContext<ContextValue | undefined>(undefined)
+const SidebarCtx = createContext(undefined)
 
-export const SidebarProvider: React.FC = ({ children }) => {
+export const SidebarProvider = ({ children }) => {
   const [state, setState] = useState(initialState)
 
-  const setSidebar = useCallback((option?: typeof initialState) => {
+  const setSidebar = useCallback((option) => {
     if (!option) {
       setState(prevState => ({ ...prevState, isOpen: !prevState.isOpen }))
       return

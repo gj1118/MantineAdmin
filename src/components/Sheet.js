@@ -7,14 +7,9 @@ import { DashIcon, XIcon } from '@primer/octicons-react'
 
 const rootId = 'sheet-root'
 
-type Props = {
-  isOpen: boolean
-  toggle(): void
-  style?: React.CSSProperties
-}
 
-export default function Sheet({ isOpen, toggle, style }: Props) {
-  const [el, setEl] = useState<HTMLElement>()
+export default function Sheet({ isOpen, toggle, style }) {
+  const [el, setEl] = useState()
 
   useEffect(() => {
     const div = document.createElement('div')

@@ -6,7 +6,7 @@ import DOMPurify from 'dompurify'
  * @see https://pragmaticwebsecurity.com/files/cheatsheets/reactxss.pdf
  * @see https://medium.com/@rezaduty/how-to-write-secure-code-in-react-937579011d3c
  */
-export function safeInnerHtml(value: string) {
+export function safeInnerHtml(value) {
   if (typeof value !== 'string') {
     return ''
   }
@@ -14,12 +14,11 @@ export function safeInnerHtml(value: string) {
   return DOMPurify.sanitize(value)
 }
 
-type AllowedTags = 'div' | 'p' | 'article' | 'section'
 
 /**
  * @desc Allowed tag for wrapping text
  */
-export function getValidTag(tag?: AllowedTags): AllowedTags {
+export function getValidTag(tag) {
   switch (tag) {
     case 'div':
     case 'p':

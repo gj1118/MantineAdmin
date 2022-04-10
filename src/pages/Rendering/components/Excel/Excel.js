@@ -3,9 +3,9 @@ import { useState } from 'react'
 import * as utils from './utils'
 
 export default function Excel() {
-  const [items, setItems] = useState<unknown[]>([])
+  const [items, setItems] = useState([])
 
-  const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = async (e) => {
     let [file] = e.target.files || []
 
     try {
@@ -13,7 +13,7 @@ export default function Excel() {
       let data = (await utils.readExcel(validFile)).slice(0, 5)
       setItems(data)
     } catch (error) {
-      console.error('Error reading excel', (error as Error)?.message)
+      console.error('Error reading excel', (error)?.message)
     }
   }
 

@@ -1,8 +1,4 @@
-type Props = {
-  value?: number
-}
-
-export default function Progress({ value }: Props) {
+export default function Progress({ value }) {
   return (
     <div className="circular">
       <div className="inner"></div>

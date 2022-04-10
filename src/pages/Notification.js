@@ -4,12 +4,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
 import { useNotification } from '../hooks/context/Notification'
 
-type ModalBodyProps = {
-  title?: string
-  subtitle?: string
-}
-
-function ModalBody({ title, subtitle }: ModalBodyProps) {
+function ModalBody({ title, subtitle }) {
   return (
     <>
       {typeof title === 'string' && <h5>{title}</h5>}

@@ -24,8 +24,8 @@ function TitleDefault() {
   return <h4>I'm hero component</h4>
 }
 
-type TitleFrameProps = { color?: React.CSSProperties['color'] }
-function TitleWithFrame(props: TitleFrameProps) {
+
+function TitleWithFrame(props) {
   const { color } = props
   return (
     <>

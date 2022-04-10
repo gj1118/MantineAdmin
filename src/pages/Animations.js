@@ -11,7 +11,7 @@ import { MinusIcon, PlusIcon } from '@modulz/radix-icons'
 import { motion, Transition, Variants } from 'framer-motion'
 import { useState, useRef } from 'react'
 
-const buttonVariants: Variants = {
+const buttonVariants = {
   rest: {
     '--button-star-greyscale': '100%',
     '--button-star-contrast': '0%',
@@ -26,24 +26,24 @@ const buttonVariants: Variants = {
   press: { scale: 1.2 },
 }
 
-const likedTransition: Transition = {
+const likedTransition = {
   duration: 0.25,
   // delay: 0.3,
 }
 
-const currentCountVariants: Variants = {
+const currentCountVariants = {
   unliked: { opacity: 1, y: 0, transition: { duration: 0.25 } },
   liked: { opacity: 0, y: -40, transition: likedTransition },
 }
 
-const nextCountVariants: Variants = {
+const nextCountVariants = {
   unliked: { opacity: 0, y: 40, transition: { duration: 0.25 } },
   liked: { opacity: 1, y: 0, transition: likedTransition },
 }
 
 export default function AnimationsPage() {
   const [value, setValue] = useState(0)
-  const handlers = useRef<NumberInputHandlers>(null)
+  const handlers = useRef(null)
   const [isHover, setIsHover] = useState(false)
   const [isAdded, setIsAdded] = useState(false)
 

@@ -8,11 +8,7 @@ import {
   useMantineTheme,
 } from '@mantine/core'
 
-type Props = {
-  toggle: () => void
-}
-
-export default function CardExample({ toggle }: Props) {
+export default function CardExample({ toggle }) {
   const theme = useMantineTheme()
 
   const secondaryColor =

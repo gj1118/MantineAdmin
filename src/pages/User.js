@@ -20,7 +20,8 @@ import {
   FaceIcon,
 } from '@modulz/radix-icons'
 import { useEffect, useState } from 'react'
-import Users from '../models/Users'
+
+const Users = []
 
 export default function UserPage() {
   const { register, handleSubmit, reset } = useForm()

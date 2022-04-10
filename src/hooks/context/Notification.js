@@ -6,10 +6,6 @@ import {
   useMemo,
 } from 'react'
 
-type ContextValue = {
-  isOpen: boolean
-  setNotification?: (value?: Pick<ContextValue, 'isOpen'>) => void
-}
 
 const initialState = { isOpen: true }
 
@@ -19,12 +15,12 @@ const initialState = { isOpen: true }
  * But in this case, we set the value to `undefined`, so it will throw
  * if we calling `useNotification` without the `Provider`
  */
-const NotificationCtx = createContext<ContextValue | undefined>(undefined)
+const NotificationCtx = createContext(undefined)
 
-export const NotificationProvider: React.FC = ({ children }) => {
+export const NotificationProvider = ({ children }) => {
   const [state, setState] = useState(initialState)
 
-  const setNotification = useCallback((option?: typeof initialState) => {
+  const setNotification = useCallback((option) => {
     if (!option) {
       return
     }

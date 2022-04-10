@@ -1,4 +1,4 @@
-import type { Icon } from '@primer/octicons-react'
+import { Icon } from '@primer/octicons-react'
 import HomePage from '../pages/Home'
 import NotificationPage from '../pages/Notification'
 import UploadManagerPage from '../pages/UploadManager'
@@ -7,7 +7,6 @@ import UserPage from '../pages/User'
 import { RenderingPage } from '../pages/Rendering'
 import FormPage from '../pages/Form'
 import TablePage from '../pages/Table'
-import { EventsPage } from '../pages/Events'
 import { ModalPage } from '../pages/Modal'
 import { NoMatch } from '../pages'
 import {
@@ -23,18 +22,9 @@ import {
   PulseIcon,
   StackIcon,
 } from '@primer/octicons-react'
-import type { RouteObject } from 'react-router-dom'
+import { RouteObject } from 'react-router-dom'
 
-export type Route = {
-  name: string
-  path: string
-  element: React.FC | (() => JSX.Element)
-  icon: Icon | (() => JSX.Element)
-  color: string
-  private?: boolean
-}
-
-const routes: Route[] = [
+const routes = [
   { name: 'Home', path: '/', element: HomePage, icon: HomeIcon, color: 'pink' },
   {
     name: 'Notification',
@@ -86,13 +76,6 @@ const routes: Route[] = [
     color: 'orange',
   },
   {
-    name: 'Events',
-    path: '/events',
-    element: EventsPage,
-    icon: PulseIcon,
-    color: 'teal',
-  },
-  {
     name: 'Modal',
     path: '/modal',
     element: ModalPage,
@@ -106,20 +89,6 @@ const routes: Route[] = [
     icon: PlusIcon,
     color: 'green',
     private: true,
-  },
-]
-
-const routesObject: RouteObject[] = [
-  {
-    element: 'Home',
-    path: '/',
-    children: [
-      {
-        path: 'rendering',
-        element: <NoMatch />,
-      },
-      { path: '*', element: <NoMatch /> },
-    ],
   },
 ]
 

@@ -14,19 +14,12 @@ import NavButton from '../components/NavButton'
 export default function HomePage() {
   return (
     <Paper
-      shadow="xs"
+      radius= {0}
       p="xs"
-      withBorder
       component={ScrollArea}
-      style={{ height: 'calc(100vh - 110px)' }}>
+      style={{ height: 'calc(100vh - 110px)' , backgroundColor:"transparent"}}>
       <Center
         component={Box}
-        sx={theme => ({
-          backgroundColor:
-            theme.colorScheme === 'dark'
-              ? theme.colors.dark[6]
-              : theme.colors.blue[1],
-        })}
         style={{ width: '100%', height: 200 }}>
         <Text component="h1" size="xl">
           Home Page - I'm centered

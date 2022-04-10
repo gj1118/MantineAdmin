@@ -2,7 +2,7 @@ import { Space, Text } from '@mantine/core'
 import { Bold, Tag, Heading } from './Tags'
 import PropTypes from 'prop-types'
 
-function RenderMe({ isOpen }: { isOpen: boolean }) {
+function RenderMe({ isOpen }) {
   return <span>Hello {JSON.stringify(isOpen, null, 2)}</span>
 }
 

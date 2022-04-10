@@ -11,7 +11,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 export default function FormPage() {
   const [wasSubmitted, setWasSubmitted] = useState(false)
 
-  function handleSubmitForm(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmitForm(event) {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const fieldValues = Object.fromEntries(formData.entries())
@@ -20,7 +20,7 @@ export default function FormPage() {
     setWasSubmitted(true)
   }
 
-  function onFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function onFileChange(e) {
     if (!e.target.files) {
       return
     }
@@ -35,7 +35,7 @@ export default function FormPage() {
     },
   })
 
-  const onSubmit: SubmitHandler<{ category: string }> = ({ category }) => {}
+  const onSubmit = ({ category }) => {}
 
   return (
     <>

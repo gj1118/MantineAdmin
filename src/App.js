@@ -26,7 +26,7 @@ import { SidebarProvider } from './hooks/context/Sidebar'
  * @see https://dev.to/iamandrewluca/private-route-in-react-router-v6-lg5
  */
 export default function App() {
-  const [color, setColor] = useState<ColorScheme>('light')
+  const [color, setColor] = useState('light')
   const [isSidebarOpen, setSidebarOpen] = useState(false)
 
   const toggleColorScheme = useCallback(() => {

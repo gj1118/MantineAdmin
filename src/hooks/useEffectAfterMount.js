@@ -1,13 +1,9 @@
 import { useEffect, useRef } from 'react'
-import type { DependencyList } from 'react'
 
 /**
  * @see https://kentcdodds.com/blog/compound-components-with-react-hooks
  */
-export default function useEffectAfterMount(
-  cb: () => void,
-  dependencies: DependencyList
-) {
+export default function useEffectAfterMount(cb,dependencies) {
   const justMounted = useRef(true)
 
   useEffect(() => {

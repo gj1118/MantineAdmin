@@ -5,21 +5,10 @@ import { upperFirst } from '@mantine/hooks'
 import { ArrowLeftIcon, ArrowRightIcon } from '@modulz/radix-icons'
 import useStyles from './NavButton.styles'
 
-interface NavButtonProps {
-  data: {
-    slug: string
-    title: string
-    package: string
-    group: string
-  }
-  type: 'next' | 'prev'
-  className?: string
-}
-
 /**
  * @see https://github.com/mantinedev/mantine/blob/master/docs/src/components/MdxPage/MdxSiblings/MdxSibling/MdxSibling.tsx
  */
-export default function NavButton({ data, type, className }: NavButtonProps) {
+export default function NavButton({ data, type, className }) {
   const { classes, cx } = useStyles()
   const iconStyle = { width: 22, height: 22 }
 
