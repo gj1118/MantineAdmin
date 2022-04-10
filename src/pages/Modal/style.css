@@ -1,0 +1,72 @@
+.ReactModal__Body--open,
+.ReactModal__Html--open {
+  overflow: hidden;
+}
+
+.CustomModal__Content {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  right: 100px;
+  bottom: 100px;
+  background-color: papayawhip;
+  border-radius: 8px;
+
+  transition: transform 350ms ease-in-out;
+  transform: scale(0);
+}
+
+.CustomModal__Content--after-open {
+  transform: scale(1);
+}
+
+.CustomModal__Content--before-close {
+  transform: scale(0);
+}
+
+.CustomModal__Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Need to set value higher than AppBar (100) */
+  z-index: 200;
+  background-color: rgba(255, 255, 255, 0.75);
+
+  opacity: 0;
+  transition: opacity 350ms ease-in-out;
+}
+
+.CustomModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.CustomModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.MainModal__Content {
+  /* position: absolute;
+  top: 30%;
+  left: 30%; */
+  /* right: 100px;
+  bottom: 100px;
+  background-color: pink;
+  border-radius: 8px; */
+}
+
+.MainModal__Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Need to set value higher than AppBar (100) */
+  z-index: 200;
+  background-color: rgba(255, 255, 255, 0.75);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
