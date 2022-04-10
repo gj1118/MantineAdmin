@@ -22,7 +22,7 @@ import {
 
 
 const routes = [
-  { name: 'Home', path: '/', element: HomePage, icon: HomeIcon },
+  { name: 'Home', path: '/', element: HomePage, icon: HomeIcon, breadcrumb:"Home" },
   {
     name: 'Notification',
     path: '/notification',

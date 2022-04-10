@@ -6,18 +6,23 @@ import {
   ColorSchemeProvider,
   AppShell,
   Header,
+  Breadcrumbs,
+  Anchor,
+  Paper
 } from '@mantine/core'
 import { SearchIcon as Search } from '@primer/octicons-react'
 import PrivateRoute from './routes/PrivateRoute'
 import Sidebar from './components/Sidebar/Sidebar'
 import { Heading } from './components/Heading'
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { NotificationsProvider } from '@mantine/notifications'
 import { SidebarProvider } from './hooks/context/Sidebar'
 import { ModalsProvider } from '@mantine/modals'
 import { useHotkeys, useLocalStorage } from '@mantine/hooks'
-import { SpotlightProvider,openSpotLight, SpotlightAction } from '@mantine/spotlight'
+import { SpotlightProvider } from '@mantine/spotlight'
 import SpotLightActions from './helpers/data/spotlightData'
+import useBreadcrumbs from 'use-react-router-breadcrumbs'
+import PaperWrapper from './wrappers/Paper'
 
 /**
  * Implement private route in react-router v6
@@ -31,10 +36,13 @@ export default function App() {
     getInitialValueInEffect: true,
   })
 
+  const breadcrumbs = useBreadcrumbs(routes)
+
   const [isSidebarOpen, setSidebarOpen] = useState(false)
 
-  const toggleColorScheme = value =>
+  const toggleColorScheme = value => {
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
+  }
 
   useHotkeys([['mod+J', () => toggleColorScheme()]])
 
@@ -57,6 +65,7 @@ export default function App() {
           searchIcon={<Search size={18} />}
           searchPlaceholder="Search..."
           shortcut="mod + shift + 1"
+          highlightQuery
           nothingFoundMessage="Nothing found...">
           <ModalsProvider>
             <NotificationsProvider position="top-right">
@@ -80,6 +89,15 @@ export default function App() {
                           : theme.colors.gray[0],
                     },
                   })}>
+                  <Paper p="xs" mb={10}>
+                    <Breadcrumbs>
+                      {breadcrumbs.map(({ match, breadcrumb }) => (
+                        <Anchor size="sm" href={match.pathname} key={match.pathname}>
+                          {breadcrumb}
+                        </Anchor>
+                      ))}
+                    </Breadcrumbs>
+                  </Paper>
                   <Routes>
                     {routes.map(route => {
                       const Element = route.element

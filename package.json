@@ -32,7 +32,8 @@
     "react-file-icon": "1.1.0",
     "react-hook-form": "7.27.1",
     "react-router-dom": "6.2.2",
-    "react-scripts": "5.0.0"
+    "react-scripts": "5.0.0",
+    "use-react-router-breadcrumbs": "^3.2.1"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
