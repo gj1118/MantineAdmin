@@ -17,7 +17,7 @@ import PrivateRoute from './routes/PrivateRoute'
 import Sidebar from './components/Sidebar/Sidebar'
 import { Brand } from './components/Brand'
 import { useCallback, useState } from 'react'
-import { NotificationProvider } from './hooks/context/Notification'
+import { NotificationsProvider } from '@mantine/notifications'
 import { SidebarProvider } from './hooks/context/Sidebar'
 
 /**
@@ -43,8 +43,8 @@ export default function App() {
           fontFamily: 'Open Sans, sans serif',
           colorScheme: color,
         }}>
-        <SidebarProvider>
-          <NotificationProvider>
+        <NotificationsProvider>
+          <SidebarProvider>
             <AppShell
               // Add fixed prop if don't want sidebar to shrink
               // But it will make main content to be tear off into right side
@@ -85,8 +85,8 @@ export default function App() {
                 })}
               </Routes>
             </AppShell>
-          </NotificationProvider>
-        </SidebarProvider>
+          </SidebarProvider>
+        </NotificationsProvider>
       </MantineProvider>
     </ColorSchemeProvider>
   )
