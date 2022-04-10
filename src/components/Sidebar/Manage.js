@@ -7,13 +7,12 @@ import {
   BackgroundImage,
   Avatar,
   Image,
-  ActionIcon
+  ActionIcon,
 } from '@mantine/core'
 import { useSidebar } from '../../hooks/context/Sidebar'
-import BG from "../../assets/bg.svg"
-import Settings from "../../assets/settings.svg"
+import BG from '../../assets/bg.svg'
+import Settings from '../../assets/settings.svg'
 import { ToolsIcon } from '@primer/octicons-react'
-
 
 const useStyles = createStyles(theme => ({
   user: {
@@ -49,8 +48,8 @@ export default function Manage() {
       <UnstyledButton className={classes.user} px={!isOpen ? 10 : undefined}>
         {!isOpen && (
           <ActionIcon>
-                <ToolsIcon size="lg"></ToolsIcon>
-        </ActionIcon>
+            <ToolsIcon></ToolsIcon>
+          </ActionIcon>
         )}
         <Group spacing={8}>
           {isOpen && (
