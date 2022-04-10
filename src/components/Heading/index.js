@@ -5,8 +5,8 @@ import {
   BookmarkIcon,
   SunIcon,
   MoonIcon,
-  SidebarCollapseIcon, 
-  SidebarExpandIcon
+  SignInIcon, 
+  SignOutIcon
 } from '@primer/octicons-react'
 import { AnimatePresence } from 'framer-motion'
 import { useSidebar } from '../../hooks/context/Sidebar'
@@ -66,8 +66,8 @@ export function Heading() {
           <ActionIcon
             variant="default"
             onClick={() => setSidebar?.()}
-            size={16}>
-            {isOpen ? <SidebarExpandIcon /> : <SidebarCollapseIcon />}
+            size={30}>
+            {isOpen ? <SignInIcon /> : <SignOutIcon />}
           </ActionIcon>
           <AnimatePresence exitBeforeEnter initial={false}>
             <Tooltip
