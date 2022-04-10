@@ -6,10 +6,11 @@ import {
   SimpleGrid,
   Text,
   ScrollArea,
-  Title
+  Title, Menu, Divider
 } from '@mantine/core'
-import { ArrowRightIcon, ArrowLeftIcon } from '@primer/octicons-react'
+import { ArrowRightIcon, ArrowLeftIcon, ToolsIcon, CommentIcon, CodeOfConductIcon, SearchIcon, ArrowSwitchIcon, XCircleIcon } from '@primer/octicons-react'
 import { Link } from 'react-router-dom'
+import ButtonWithMenu from '../components/ButtonWithMenu'
 import NavButton from '../components/NavButton'
 
 
@@ -25,7 +26,39 @@ export default function HomePage() {
           <Title order={2}>Welcome &mdash; (username) </Title>
         </Center>
         <Center>
-          <Button color="teal">What would you like to do today?</Button>
+          <Menu
+            withArrow
+            placement="center"
+            control={
+              <ButtonWithMenu
+                heading="What would you like to do?"
+                subtitle="Select an option from the dropdown"
+              />
+            }>
+            <Menu.Label>Application</Menu.Label>
+            <Menu.Item icon={<ToolsIcon size={14} />}>Settings</Menu.Item>
+            <Menu.Item icon={<CommentIcon size={14} />}>Messages</Menu.Item>
+            <Menu.Item icon={<CodeOfConductIcon size={14} />}>
+              Gallery
+            </Menu.Item>
+            <Menu.Item
+              icon={<SearchIcon size={14} />}
+              rightSection={
+                <Text size="xs" color="dimmed">
+                  ⌘K
+                </Text>
+              }>
+              Search
+            </Menu.Item>
+            <Divider />
+            <Menu.Label>Danger zone</Menu.Label>
+            <Menu.Item icon={<ArrowSwitchIcon size={14} />}>
+              Transfer my data
+            </Menu.Item>
+            <Menu.Item color="red" icon={<XCircleIcon size={14} />}>
+              Delete my account
+            </Menu.Item>
+          </Menu>
         </Center>
       </Box>
       <SimpleGrid cols={3} spacing="sm" mt={10}>
