@@ -4,7 +4,7 @@ export const FB_URL_REGEX = /(?:https?:\/\/)?(?:www\.|m\.|mobile\.|touch\.|mbasi
  * @see https://gist.github.com/marcgg/733592?permalink_comment_id=3701800#gistcomment-3701800 Github
  * @param url
  */
-export function isValidFbUrl(url: unknown) {
+export function isValidFbUrl(url) {
   if (typeof url !== 'string') {
     return false
   }
