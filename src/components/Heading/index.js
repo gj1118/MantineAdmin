@@ -1,14 +1,16 @@
 import { useMantineColorScheme, useMantineTheme } from '@mantine/styles'
+import { SquareIcon, ViewVerticalIcon } from '@modulz/radix-icons'
+import { Group, ActionIcon, Text, Tooltip } from '@mantine/core'
 import {
-  SquareIcon,
-  ViewVerticalIcon,
-} from '@modulz/radix-icons'
-import { Group, ActionIcon, Text } from '@mantine/core'
-import { BookmarkFillIcon, BookmarkIcon, SunIcon, MoonIcon } from '@primer/octicons-react'
+  BookmarkFillIcon,
+  BookmarkIcon,
+  SunIcon,
+  MoonIcon,
+} from '@primer/octicons-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSidebar } from '../../hooks/context/Sidebar'
 
-export function Brand() {
+export function Heading() {
   const theme = useMantineTheme()
   const { isOpen, setSidebar } = useSidebar()
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
@@ -40,13 +42,15 @@ export function Brand() {
             {isOpen ? <ViewVerticalIcon /> : <SquareIcon />}
           </ActionIcon>
           <AnimatePresence exitBeforeEnter initial={false}>
-            <ActionIcon
-              key={isDark ? 'dark-icon' : 'light-icon'}
-              variant="default"
-              onClick={() => toggleColorScheme()}
-              size={30}>
-              {isDark ? <SunIcon /> : <MoonIcon />}
-            </ActionIcon>
+            <Tooltip wrapLines width={60} withArrow transition="fade" transitionDuration={200} label="CMD/CTRL + J">
+              <ActionIcon
+                key={isDark ? 'dark-icon' : 'light-icon'}
+                variant="default"
+                onClick={() => toggleColorScheme()}
+                size={30}>
+                {isDark ? <SunIcon /> : <MoonIcon />}
+              </ActionIcon>
+            </Tooltip>
           </AnimatePresence>
         </Group>
       </Group>

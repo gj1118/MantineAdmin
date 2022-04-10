@@ -15,11 +15,12 @@ import {
 } from '@mantine/core'
 import PrivateRoute from './routes/PrivateRoute'
 import Sidebar from './components/Sidebar/Sidebar'
-import { Brand } from './components/Brand'
+import { Heading } from './components/Heading'
 import { useCallback, useState } from 'react'
 import { NotificationsProvider } from '@mantine/notifications'
 import { SidebarProvider } from './hooks/context/Sidebar'
 import { ModalsProvider } from '@mantine/modals'
+import { useHotkeys, useLocalStorage } from '@mantine/hooks'
 
 /**
  * Implement private route in react-router v6
@@ -27,17 +28,23 @@ import { ModalsProvider } from '@mantine/modals'
  * @see https://dev.to/iamandrewluca/private-route-in-react-router-v6-lg5
  */
 export default function App() {
-  const [color, setColor] = useState('light')
+  const [colorScheme, setColorScheme] = useLocalStorage({
+    key: 'mantine-color-scheme',
+    defaultValue: 'light',
+    getInitialValueInEffect: true,
+  })
+
   const [isSidebarOpen, setSidebarOpen] = useState(false)
 
-  const toggleColorScheme = useCallback(() => {
-    setColor(prev => (prev === 'light' ? 'dark' : 'light'))
-  }, [])
+  const toggleColorScheme = value =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
+
+  useHotkeys([['mod+J', () => toggleColorScheme()]])
 
   return (
     <ColorSchemeProvider
       toggleColorScheme={toggleColorScheme}
-      colorScheme={color}>
+      colorScheme={colorScheme}>
       <MantineProvider
         theme={{
           // Override any other properties from default theme
@@ -46,7 +53,7 @@ export default function App() {
             fontFamily: 'Poppins , sans serif',
             fontWeight: 500,
           },
-          colorScheme: color,
+          colorScheme: colorScheme,
         }}>
         <ModalsProvider>
           <NotificationsProvider position="top-right">
@@ -59,7 +66,7 @@ export default function App() {
                 navbar={<Sidebar />}
                 header={
                   <Header height={60} p="xs">
-                    <Brand />
+                    <Heading />
                   </Header>
                 }
                 styles={theme => ({
