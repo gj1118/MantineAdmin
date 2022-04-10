@@ -1,6 +1,19 @@
 import { createStyles } from '@mantine/styles'
-import { UnstyledButton, Group, Avatar, Text } from '@mantine/core'
+import {
+  UnstyledButton,
+  Group,
+  Center,
+  Text,
+  BackgroundImage,
+  Avatar,
+  Image,
+  ActionIcon
+} from '@mantine/core'
 import { useSidebar } from '../../hooks/context/Sidebar'
+import BG from "../../assets/bg.svg"
+import Settings from "../../assets/settings.svg"
+import { ToolsIcon } from '@primer/octicons-react'
+
 
 const useStyles = createStyles(theme => ({
   user: {
@@ -34,20 +47,21 @@ export default function Manage() {
         }`,
       }}>
       <UnstyledButton className={classes.user} px={!isOpen ? 10 : undefined}>
+        {!isOpen && (
+          <ActionIcon>
+                <ToolsIcon size="lg"></ToolsIcon>
+        </ActionIcon>
+        )}
         <Group spacing={8}>
-          <Avatar
-            src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=255&q=80"
-            radius="xl"
-          />
           {isOpen && (
-            <div style={{ flex: 1 }}>
-              <Text size="sm" weight={500}>
-                Manage
-              </Text>
-              <Text color="dimmed" size="xs">
-                Manage your account
-              </Text>
-            </div>
+            <BackgroundImage src={BG} radius={4}>
+              <Center p="md">
+                <Text color="#000" size="xs">
+                  Click here to manage your account.You can manage your users,
+                  your subscription.
+                </Text>
+              </Center>
+            </BackgroundImage>
           )}
         </Group>
       </UnstyledButton>
