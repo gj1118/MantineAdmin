@@ -10,6 +10,7 @@ import {
 import { MinusIcon, PlusIcon } from '@modulz/radix-icons'
 import { motion, Transition, Variants } from 'framer-motion'
 import { useState, useRef } from 'react'
+import PaperWrapper from '../wrappers/Paper'
 
 const buttonVariants = {
   rest: {
@@ -48,7 +49,7 @@ export default function AnimationsPage() {
   const [isAdded, setIsAdded] = useState(false)
 
   return (
-    <Paper p="xs" shadow="xs" withBorder>
+    <PaperWrapper>
       <Group>
         <Text component="div">Like Me</Text>
         <motion.div
@@ -131,6 +132,6 @@ export default function AnimationsPage() {
           <PlusIcon />
         </ActionIcon>
       </Group>
-    </Paper>
+    </PaperWrapper>
   )
 }

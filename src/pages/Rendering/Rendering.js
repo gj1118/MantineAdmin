@@ -19,6 +19,7 @@ import JSX from './components/JSX'
 import Excel from './components/Excel'
 import PDF from './components/PDF'
 import { FileIcon, defaultStyles } from 'react-file-icon'
+import PaperWrapper from '../../wrappers/Paper'
 
 function TitleDefault() {
   return <h4>I'm hero component</h4>
@@ -56,7 +57,7 @@ export default function RenderingPage() {
   const [isVisible, setVisible] = useState(false)
 
   return (
-    <Paper p="xs" shadow="xs" withBorder>
+    <PaperWrapper>
       <Text>Clone Element</Text>
       <Hero />
       <Hero titleEl={<TitleWithFrame color="salmon" />} />
@@ -158,6 +159,6 @@ export default function RenderingPage() {
           <Excel />
         </Tabs.Tab>
       </Tabs>
-    </Paper>
+    </PaperWrapper>
   )
 }

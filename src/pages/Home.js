@@ -6,6 +6,7 @@ import {
   SimpleGrid,
   Text,
   ScrollArea,
+  Title,
 } from '@mantine/core'
 import { ArrowRightIcon, ArrowLeftIcon } from '@modulz/radix-icons'
 import { Link } from 'react-router-dom'
@@ -21,9 +22,9 @@ export default function HomePage() {
       <Center
         component={Box}
         style={{ width: '100%', height: 200 }}>
-        <Text component="h1" size="xl">
+        <Title order={2}>
           Home Page - I'm centered
-        </Text>
+        </Title>
       </Center>
       <Text align="center" mt={10}>
         SimpleGrid for flexbox container

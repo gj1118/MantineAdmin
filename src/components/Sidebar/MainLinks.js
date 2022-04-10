@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStyles } from '@mantine/styles'
-import { ThemeIcon, UnstyledButton, Group, Text, Anchor, ActionIcon } from '@mantine/core'
+import { ThemeIcon, UnstyledButton, Group, Text, Anchor, ActionIcon, Title } from '@mantine/core'
 import { Link } from 'react-router-dom'
 import routes, { Route } from '../../routes'
 import { useSidebar } from '../../hooks/context/Sidebar'
@@ -35,7 +35,7 @@ function MainLink({ icon: Icon, color, name, path }) {
             <Icon />
           </ActionIcon>
 
-          {isOpen && <Text size="sm">{name}</Text>}
+          {isOpen && <Title order={6}>{name}</Title>}
         </Group>
         {/* </UnstyledButton> */}
       </Anchor>

@@ -3,6 +3,7 @@ import { useState, useCallback } from 'react'
 import { IssueClosedIcon, IssueDraftIcon } from '@primer/octicons-react'
 import Sheet from '../components/Sheet'
 import { motion } from 'framer-motion'
+import PaperWrapper from '../wrappers/Paper'
 
 const AnimatedDraftIcon = motion(IssueDraftIcon)
 
@@ -14,7 +15,7 @@ export default function UploadManagerPage() {
   }, [])
 
   return (
-    <Paper padding="xs" shadow="xs" withBorder>
+    <PaperWrapper>
       <Button variant="default" onClick={handleToggle}>
         Toggle Sheet
       </Button>
@@ -48,6 +49,6 @@ export default function UploadManagerPage() {
         </List.Item>
       </List>
       <Sheet isOpen={isOpen} toggle={handleToggle} />
-    </Paper>
+    </PaperWrapper>
   )
 }

@@ -40,10 +40,14 @@ export default function App() {
       <MantineProvider
         theme={{
           // Override any other properties from default theme
-          fontFamily: 'Open Sans, sans serif',
+          fontFamily: 'Open Sans , sans serif',
+          headings: {
+            fontFamily: 'Poppins , sans serif',
+            fontWeight:500,
+          },
           colorScheme: color,
         }}>
-        <NotificationsProvider>
+        <NotificationsProvider position='top-right'>
           <SidebarProvider>
             <AppShell
               // Add fixed prop if don't want sidebar to shrink
