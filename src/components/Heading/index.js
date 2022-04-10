@@ -1,5 +1,5 @@
 import { useMantineColorScheme, useMantineTheme } from '@mantine/styles'
-import { Group, ActionIcon, Text, Tooltip, Input, Kbd } from '@mantine/core'
+import { Group, ActionIcon, Tooltip, Input, Kbd } from '@mantine/core'
 import {
   BookmarkFillIcon,
   BookmarkIcon,
@@ -8,7 +8,7 @@ import {
   SidebarCollapseIcon, 
   SidebarExpandIcon
 } from '@primer/octicons-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { useSidebar } from '../../hooks/context/Sidebar'
 import PaperWrapper from '../../wrappers/Paper'
 import { SearchIcon } from '@primer/octicons-react'

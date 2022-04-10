@@ -1,4 +1,3 @@
-import { Icon } from '@primer/octicons-react'
 import HomePage from '../pages/Home'
 import NotificationPage from '../pages/Notification'
 import UploadManagerPage from '../pages/UploadManager'
