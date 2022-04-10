@@ -18,7 +18,7 @@ import { useState } from 'react'
 import { NotificationsProvider } from '@mantine/notifications'
 import { SidebarProvider } from './hooks/context/Sidebar'
 import { ModalsProvider } from '@mantine/modals'
-import { useHotkeys, useLocalStorage } from '@mantine/hooks'
+import { useHotkeys, useLocalStorage, useDocumentTitle } from '@mantine/hooks'
 import { SpotlightProvider } from '@mantine/spotlight'
 import SpotLightActions from './helpers/data/spotlightData'
 import useBreadcrumbs from 'use-react-router-breadcrumbs'
@@ -35,7 +35,7 @@ export default function App() {
     defaultValue: 'light',
     getInitialValueInEffect: true,
   })
-
+  useDocumentTitle("Test Case management")
   const breadcrumbs = useBreadcrumbs(routes)
 
   const [isSidebarOpen, setSidebarOpen] = useState(false)
