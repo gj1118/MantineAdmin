@@ -1,11 +1,12 @@
 import { useMantineColorScheme, useMantineTheme } from '@mantine/styles'
-import { SquareIcon, ViewVerticalIcon } from '@modulz/radix-icons'
 import { Group, ActionIcon, Text, Tooltip, Input, Kbd } from '@mantine/core'
 import {
   BookmarkFillIcon,
   BookmarkIcon,
   SunIcon,
   MoonIcon,
+  SidebarCollapseIcon, 
+  SidebarExpandIcon
 } from '@primer/octicons-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSidebar } from '../../hooks/context/Sidebar'
@@ -65,8 +66,8 @@ export function Heading() {
           <ActionIcon
             variant="default"
             onClick={() => setSidebar?.()}
-            size={30}>
-            {isOpen ? <ViewVerticalIcon /> : <SquareIcon />}
+            size={16}>
+            {isOpen ? <SidebarExpandIcon /> : <SidebarCollapseIcon />}
           </ActionIcon>
           <AnimatePresence exitBeforeEnter initial={false}>
             <Tooltip

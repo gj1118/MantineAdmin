@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Text } from '@mantine/core'
 import { upperFirst } from '@mantine/hooks'
-import { ArrowLeftIcon, ArrowRightIcon } from '@modulz/radix-icons'
+import { ArrowLeftIcon, ArrowRightIcon } from '@primer/octicons-react'
 import useStyles from './NavButton.styles'
 
 /**

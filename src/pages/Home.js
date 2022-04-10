@@ -8,23 +8,19 @@ import {
   ScrollArea,
   Title,
 } from '@mantine/core'
-import { ArrowRightIcon, ArrowLeftIcon } from '@modulz/radix-icons'
+import { ArrowRightIcon, ArrowLeftIcon } from '@primer/octicons-react'
 import { Link } from 'react-router-dom'
 import NavButton from '../components/NavButton'
 
 export default function HomePage() {
   return (
     <Paper
-      radius= {0}
+      radius={0}
       p="xs"
       component={ScrollArea}
-      style={{ height: 'calc(100vh - 110px)' , backgroundColor:"transparent"}}>
-      <Center
-        component={Box}
-        style={{ width: '100%', height: 200 }}>
-        <Title order={2}>
-          Home Page - I'm centered
-        </Title>
+      style={{ height: 'calc(100vh - 110px)', backgroundColor: 'transparent' }}>
+      <Center component={Box} style={{ width: '100%', height: 200 }}>
+        <Title order={2}>Home Page - I'm centered</Title>
       </Center>
       <Text align="center" mt={10}>
         SimpleGrid for flexbox container

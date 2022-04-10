@@ -2,10 +2,7 @@ import { Icon } from '@primer/octicons-react'
 import HomePage from '../pages/Home'
 import NotificationPage from '../pages/Notification'
 import UploadManagerPage from '../pages/UploadManager'
-import AnimationsPage from '../pages/Animations'
 import UserPage from '../pages/User'
-import { RenderingPage } from '../pages/Rendering'
-import FormPage from '../pages/Form'
 import TablePage from '../pages/Table'
 import { ModalPage } from '../pages/Modal'
 import { NoMatch } from '../pages'
@@ -46,27 +43,6 @@ const routes = [
     element: UserPage,
     icon: PersonIcon,
     color: 'blue',
-  },
-  {
-    name: 'Animations',
-    path: '/animations',
-    element: AnimationsPage,
-    icon: StarIcon,
-    color: 'yellow',
-  },
-  {
-    name: 'Rendering',
-    path: '/rendering',
-    element: RenderingPage,
-    icon: VersionsIcon,
-    color: 'cyan',
-  },
-  {
-    name: 'Native Form',
-    path: '/form',
-    element: FormPage,
-    icon: NoteIcon,
-    color: 'red',
   },
   {
     name: 'Table',
