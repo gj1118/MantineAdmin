@@ -20,6 +20,7 @@ import {
   FaceIcon,
 } from '@modulz/radix-icons'
 import { useEffect, useState } from 'react'
+import PaperWrapper from '../wrappers/Paper'
 
 const Users = []
 
@@ -57,7 +58,7 @@ export default function UserPage() {
   )
 
   return (
-    <>
+    <PaperWrapper>
       <ScrollArea
         style={{ width: '100%', height: 'calc(100vh - 75px)' }}
         ml={-10}
@@ -129,6 +130,6 @@ export default function UserPage() {
         </form>
         <Code block>{JSON.stringify(users, null, 2)}</Code>
       </ScrollArea>
-    </>
+    </PaperWrapper>
   )
 }

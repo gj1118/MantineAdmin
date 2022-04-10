@@ -19,6 +19,7 @@ import { Brand } from './components/Brand'
 import { useCallback, useState } from 'react'
 import { NotificationsProvider } from '@mantine/notifications'
 import { SidebarProvider } from './hooks/context/Sidebar'
+import { ModalsProvider } from '@mantine/modals'
 
 /**
  * Implement private route in react-router v6
@@ -43,54 +44,56 @@ export default function App() {
           fontFamily: 'Open Sans , sans serif',
           headings: {
             fontFamily: 'Poppins , sans serif',
-            fontWeight:500,
+            fontWeight: 500,
           },
           colorScheme: color,
         }}>
-        <NotificationsProvider position='top-right'>
-          <SidebarProvider>
-            <AppShell
-              // Add fixed prop if don't want sidebar to shrink
-              // But it will make main content to be tear off into right side
-              // fixed
-              padding="xs"
-              navbar={<Sidebar />}
-              header={
-                <Header height={60} p="xs">
-                  <Brand />
-                </Header>
-              }
-              styles={theme => ({
-                main: {
-                  backgroundColor:
-                    theme.colorScheme === 'dark'
-                      ? theme.colors.dark[8]
-                      : theme.colors.gray[0],
-                },
-              })}>
-              <Routes>
-                {routes.map(route => {
-                  const Element = route.element
-                  return (
-                    <Route
-                      key={route.path}
-                      path={route.path}
-                      element={
-                        route?.private ? (
-                          <PrivateRoute>
+        <ModalsProvider>
+          <NotificationsProvider position="top-right">
+            <SidebarProvider>
+              <AppShell
+                // Add fixed prop if don't want sidebar to shrink
+                // But it will make main content to be tear off into right side
+                // fixed
+                padding="xs"
+                navbar={<Sidebar />}
+                header={
+                  <Header height={60} p="xs">
+                    <Brand />
+                  </Header>
+                }
+                styles={theme => ({
+                  main: {
+                    backgroundColor:
+                      theme.colorScheme === 'dark'
+                        ? theme.colors.dark[8]
+                        : theme.colors.gray[0],
+                  },
+                })}>
+                <Routes>
+                  {routes.map(route => {
+                    const Element = route.element
+                    return (
+                      <Route
+                        key={route.path}
+                        path={route.path}
+                        element={
+                          route?.private ? (
+                            <PrivateRoute>
+                              <Element />
+                            </PrivateRoute>
+                          ) : (
                             <Element />
-                          </PrivateRoute>
-                        ) : (
-                          <Element />
-                        )
-                      }
-                    />
-                  )
-                })}
-              </Routes>
-            </AppShell>
-          </SidebarProvider>
-        </NotificationsProvider>
+                          )
+                        }
+                      />
+                    )
+                  })}
+                </Routes>
+              </AppShell>
+            </SidebarProvider>
+          </NotificationsProvider>
+        </ModalsProvider>
       </MantineProvider>
     </ColorSchemeProvider>
   )
