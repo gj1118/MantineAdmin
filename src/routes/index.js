@@ -22,10 +22,10 @@ import {
   PulseIcon,
   StackIcon,
 } from '@primer/octicons-react'
-import { RouteObject } from 'react-router-dom'
+
 
 const routes = [
-  { name: 'Home', path: '/', element: HomePage, icon: HomeIcon, color: 'pink' },
+  { name: 'Home', path: '/', element: HomePage, icon: HomeIcon },
   {
     name: 'Notification',
     path: '/notification',

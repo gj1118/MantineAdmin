@@ -7,7 +7,7 @@ export default function Sidebar() {
   const { isOpen } = useSidebar()
 
   return (
-    <Navbar width={{ base: isOpen ? 250 : 57 }} height="calc(100vh - 65px)">
+    <Navbar width={{ base: isOpen ? 250 : 57 }} height="calc(100vh - 60px)">
       <Navbar.Section
         grow
         component={ScrollArea}

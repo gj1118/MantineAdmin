@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStyles } from '@mantine/styles'
-import { ThemeIcon, UnstyledButton, Group, Text, Anchor } from '@mantine/core'
+import { ThemeIcon, UnstyledButton, Group, Text, Anchor, ActionIcon } from '@mantine/core'
 import { Link } from 'react-router-dom'
 import routes, { Route } from '../../routes'
 import { useSidebar } from '../../hooks/context/Sidebar'
@@ -22,7 +22,7 @@ const useStyles = createStyles(theme => ({
   },
 }))
 
-function MainLink({ icon: Icon, color, name, path }: Route) {
+function MainLink({ icon: Icon, color, name, path }) {
   const { classes } = useStyles()
   const { isOpen } = useSidebar()
 
@@ -31,9 +31,9 @@ function MainLink({ icon: Icon, color, name, path }: Route) {
       <Anchor component={Link} to={path} className={classes.button}>
         {/* <UnstyledButton className={classes.button}> */}
         <Group>
-          <ThemeIcon color={color} variant="light" title={name}>
+          <ActionIcon title={name}>
             <Icon />
-          </ThemeIcon>
+          </ActionIcon>
 
           {isOpen && <Text size="sm">{name}</Text>}
         </Group>
