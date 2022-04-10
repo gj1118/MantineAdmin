@@ -6,13 +6,8 @@ import {
   ColorSchemeProvider,
   AppShell,
   Header,
-  MediaQuery,
-  Burger,
-  Text,
-  Navbar,
-  ColorScheme,
-  ScrollArea,
 } from '@mantine/core'
+import { SearchIcon as Search } from '@primer/octicons-react'
 import PrivateRoute from './routes/PrivateRoute'
 import Sidebar from './components/Sidebar/Sidebar'
 import { Heading } from './components/Heading'
@@ -21,6 +16,8 @@ import { NotificationsProvider } from '@mantine/notifications'
 import { SidebarProvider } from './hooks/context/Sidebar'
 import { ModalsProvider } from '@mantine/modals'
 import { useHotkeys, useLocalStorage } from '@mantine/hooks'
+import { SpotlightProvider,openSpotLight, SpotlightAction } from '@mantine/spotlight'
+import SpotLightActions from './helpers/data/spotlightData'
 
 /**
  * Implement private route in react-router v6
@@ -55,52 +52,59 @@ export default function App() {
           },
           colorScheme: colorScheme,
         }}>
-        <ModalsProvider>
-          <NotificationsProvider position="top-right">
-            <SidebarProvider>
-              <AppShell
-                // Add fixed prop if don't want sidebar to shrink
-                // But it will make main content to be tear off into right side
-                // fixed
-                padding="xs"
-                navbar={<Sidebar />}
-                header={
-                  <Header height={60} p="xs">
-                    <Heading />
-                  </Header>
-                }
-                styles={theme => ({
-                  main: {
-                    backgroundColor:
-                      theme.colorScheme === 'dark'
-                        ? theme.colors.dark[8]
-                        : theme.colors.gray[0],
-                  },
-                })}>
-                <Routes>
-                  {routes.map(route => {
-                    const Element = route.element
-                    return (
-                      <Route
-                        key={route.path}
-                        path={route.path}
-                        element={
-                          route?.private ? (
-                            <PrivateRoute>
+        <SpotlightProvider
+          actions={SpotLightActions}
+          searchIcon={<Search size={18} />}
+          searchPlaceholder="Search..."
+          shortcut="mod + shift + 1"
+          nothingFoundMessage="Nothing found...">
+          <ModalsProvider>
+            <NotificationsProvider position="top-right">
+              <SidebarProvider>
+                <AppShell
+                  // Add fixed prop if don't want sidebar to shrink
+                  // But it will make main content to be tear off into right side
+                  // fixed
+                  padding="xs"
+                  navbar={<Sidebar />}
+                  header={
+                    <Header height={60} p="xs">
+                      <Heading />
+                    </Header>
+                  }
+                  styles={theme => ({
+                    main: {
+                      backgroundColor:
+                        theme.colorScheme === 'dark'
+                          ? theme.colors.dark[8]
+                          : theme.colors.gray[0],
+                    },
+                  })}>
+                  <Routes>
+                    {routes.map(route => {
+                      const Element = route.element
+                      return (
+                        <Route
+                          key={route.path}
+                          path={route.path}
+                          element={
+                            route?.private ? (
+                              <PrivateRoute>
+                                <Element />
+                              </PrivateRoute>
+                            ) : (
                               <Element />
-                            </PrivateRoute>
-                          ) : (
-                            <Element />
-                          )
-                        }
-                      />
-                    )
-                  })}
-                </Routes>
-              </AppShell>
-            </SidebarProvider>
-          </NotificationsProvider>
-        </ModalsProvider>
+                            )
+                          }
+                        />
+                      )
+                    })}
+                  </Routes>
+                </AppShell>
+              </SidebarProvider>
+            </NotificationsProvider>
+          </ModalsProvider>
+        </SpotlightProvider>
       </MantineProvider>
     </ColorSchemeProvider>
   )
